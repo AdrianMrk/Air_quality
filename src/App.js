@@ -3,6 +3,7 @@ import Seeker from './seeker'
 import Map from './map'
 
 function App() {
+  
  
   return (
     <div className="App">
@@ -10,7 +11,6 @@ function App() {
         <div id="header">
         Tu będzie formularz
          <Seeker/>
-         <Map/>
         </div>
       </div>
       

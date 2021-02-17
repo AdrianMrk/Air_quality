@@ -14,8 +14,13 @@ state = {
 
 render() {
     const position = [this.state.lat, this.state.lng]
+
+    
+
+
+
     return (
-    <MapContainer center={[50.8592137,17.4788289]} zoom={12} style={{height : '600px'}}>
+    <MapContainer center={[51,20]} zoom={6} style={{height : '600px'}}>
         <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -27,6 +32,6 @@ render() {
     </Marker>
     </MapContainer>
     )
-}
+    }
 }
 export default Map
