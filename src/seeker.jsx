@@ -1,5 +1,6 @@
 import * as React from "react";
 import getLocationData from "./getLocationData"
+import { ChooseLocation } from "./chooseLocation";
 
 export default class Seeker extends React.Component {
     constructor(props) {
@@ -27,6 +28,20 @@ export default class Seeker extends React.Component {
 
         var loc = this.state.currentLocation;
 
+        if(loc)
+        {
+          return (
+          <div>
+            Witam
+            {console.log(loc)}
+            {<ChooseLocation locations={loc}/>}         
+        
+          </div>
+          );
+        }
+
+        else{
+
       return (
           <div>
             <form onSubmit={this.handleSubmit}>
@@ -35,11 +50,11 @@ export default class Seeker extends React.Component {
                 <input type="text" value={this.state.value} onChange={this.handleChange} />
             </label>
             <input type="submit" value="Wyślij" />
-            { loc ? console.log(loc): "Proszę wpisać miasto" }
             </form>
             
         </div>
       );
+      }
     }
   }
  
