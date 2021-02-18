@@ -1,4 +1,5 @@
 import * as React from "react";
+import getSensorLocation from "./getSensorLocation"
 
 
 export class ChooseLocation extends React.Component {
@@ -10,7 +11,7 @@ export class ChooseLocation extends React.Component {
     const lat = locations.lat;
     const lon = locations.lon;
     
-    return <div>{displayName+" | "+lat+" "+lon}</div>
+    return <div>{getSensorLocation(displayName)}</div>
   };
 
   render() {
