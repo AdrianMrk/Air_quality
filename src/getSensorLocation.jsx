@@ -1,23 +1,69 @@
-export var main = function(data) {
+import * as React from "react";
+import Map from './map'
+
+
+export default class GetSensorLocation extends React.Component {
+
+
+
+
+getData(lat,lon) {
    
+  fetch("http://api.gios.gov.pl/pjp-api/rest/station/findAll")
+    .then(response => {
+        if (response.ok) {
+            return response.json()
+        } else {
+            return Promise.reject(`Http error: ${response.status}`);
+        }
+    })
+    .then((responseData) => {
+        
+          this.checkStations(lat,lon,responseData);
+    //      console.log("sam fetch"+ responseData)
+        })
+  /*
     fetch('http://api.gios.gov.pl/pjp-api/rest/station/findAll')
       .then(response => response.json())
       .then((responseData) => {
-        responseData.map(second)
-      })
+        
+    //    this.fourth(lat,lon,responseData);
+        console.log("sam fetch"+ responseData)
+      })*/
   };
-export default main
+componentDidMount()
+{
+  this.getData(this.props.lat,this.props.lon)
+}
 
-var second = (data) => {
 
-  const stationName = data.stationName;
-  const gegrLat = data.gegrLat;
-  const gegrLon = data.gegrLon;
-  
-  console.log(stationName+" | "+gegrLat+gegrLon)
-};
+checkStations(lat,lon,jsonData)
+{
+  console.log(lat+" | "+lon)
+  console.log(jsonData[0].stationName+","+jsonData[0].gegrLat+","+jsonData[0].gegrLon)
 
-var thrt = function(data) {
+  jsonData.forEach(line => {
 
-  return (console.log(data) + <br/>)
-};
+    if(lat-line.gegrLat>-0.15 && lat-line.gegrLat<0.15 && lon-line.gegrLon>-0.15 && lon-line.gegrLon<0.15 )
+    console.log(line.stationName+"|"+line.gegrLat+line.gegrLon);
+    
+  });
+
+
+
+}
+
+    render() {
+
+      
+
+
+      return (
+        <div>  
+          {console.log(this.props.lat+" | "+this.props.lon)}
+          <Map/>
+        </div>
+      );
+    }
+
+}
