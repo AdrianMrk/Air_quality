@@ -55,13 +55,13 @@ checkStations(lat,lon,jsonData)
 
     render() {
 
-      
-
+      var citylat = this.props.lat
+      var citylon = this.props.lon
 
       return (
         <div>  
           {console.log(this.props.lat+" | "+this.props.lon)}
-          <Map/>
+          <Map lat={citylat} lon={citylon}/>
         </div>
       );
     }

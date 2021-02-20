@@ -34,6 +34,7 @@ export default class Seeker extends React.Component {
           <div>
             Witam
             {console.log(loc)}
+            <div onClick={() => this.setState({currentLocation:null})}>Kliknij aby powrócić</div>
             {<ChooseLocation locations={loc}/>}         
         
           </div>
@@ -43,6 +44,8 @@ export default class Seeker extends React.Component {
         else{
 
       return (
+        <div>
+          <div id="header">
           <div>
             <form onSubmit={this.handleSubmit}>
             <label>
@@ -53,6 +56,9 @@ export default class Seeker extends React.Component {
             </form>
             
         </div>
+        </div>
+      
+      </div>
       );
       }
     }
