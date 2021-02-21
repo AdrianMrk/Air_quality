@@ -32,11 +32,9 @@ export default class Seeker extends React.Component {
         {
           return (
           <div>
-            Witam
             {console.log(loc)}
             <div onClick={() => this.setState({currentLocation:null})}>Kliknij aby powrócić</div>
-            {<ChooseLocation locations={loc}/>}         
-        
+            {<ChooseLocation locations={loc}/>}          
           </div>
           );
         }
