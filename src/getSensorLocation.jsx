@@ -50,8 +50,8 @@ checkStations(lat,lon,jsonData)
     
 
     if(lat-line.gegrLat>-0.15 && lat-line.gegrLat<0.15 && lon-line.gegrLon>-0.15 && lon-line.gegrLon<0.15 )
-    {cordtable.push([line.gegrLat,line.gegrLon])
-     console.log(line.stationName+"|"+line.gegrLat+line.gegrLon);
+    {cordtable.push([line.gegrLat,line.gegrLon,line.id])
+     console.log(line.stationName+"|"+line.gegrLat+line.gegrLon+"|"+line.id);
     }
     
   });

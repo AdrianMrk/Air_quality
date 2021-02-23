@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {MapContainer,MapConsumer, TileLayer, Marker, Popup} from 'react-leaflet'
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
+import getSensorData from './getSensorData'
 
 
 
@@ -69,12 +70,18 @@ render() {
         />
        <MapConsumer>
         {(map) => {
+          console.log(tablat)
           tablat.forEach(element => {
           console.log(element)
-          let marker = L.marker(element,{icon: greenIcon}).addTo(map);
-          marker.bindPopup('<b>Hello world!</b><br />I am a popup.'+element);
-          })
-          return null
+          var marker = L.marker([element[0],element[1]],{icon: greenIcon}).addTo(map)
+          var promisedgetLocation = getSensorData(element[2]);
+          promisedgetLocation
+          .then(results => ( console.log("0000"),
+          marker.bindPopup('<b>Hello world!</b><br />I am a popup.'+element[2]+results[0].param.paramName))
+          )
+          
+        })
+        return null
         }}
       </MapConsumer>
     </MapContainer>
