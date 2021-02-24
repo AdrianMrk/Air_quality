@@ -25,6 +25,10 @@ componentDidMount()
 
 setMarks = (data) => {
 
+  const lat = data[0];
+  const lon = data[1];
+  const id = data[2]
+
   var greenIcon = L.icon({
       iconUrl: 'location-pin.png',
   
@@ -36,18 +40,8 @@ setMarks = (data) => {
   });
   console.log(data)
       return(
-
-
-  <Marker key={data[2]}
-      position={[data[0],data[1]]}
-      icon={ greenIcon }
-      >
-          <Popup>
-              Twoje kordy to: {data[0]} + {data[1]} <br/>
-              Witam serdecznie
-          </Popup>
-  </Marker>
-  )
+      <Markers key={id} lat={lat} lon={lon} id={id}/>
+      )
 
       
 }
