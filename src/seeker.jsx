@@ -26,15 +26,15 @@ export default class Seeker extends React.Component {
   
     render() {
 
-        var loc = this.state.currentLocation;
+        var location = this.state.currentLocation;
 
-        if(loc)
+        if(location)
         {
           return (
           <div>
-            {console.log(loc)}
+            {console.log(location)}
             <div onClick={() => this.setState({currentLocation:null})}>Kliknij aby powrócić</div>
-            {<ChooseLocation locations={loc}/>}          
+            {<ChooseLocation locations={location}/>}          
           </div>
           );
         }

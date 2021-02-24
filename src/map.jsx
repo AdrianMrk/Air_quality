@@ -3,6 +3,7 @@ import {MapContainer,MapConsumer, TileLayer, Marker, Popup} from 'react-leaflet'
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import getSensorData from './getSensorData'
+import Markers from './dispMarkers'
 
 
 
@@ -20,6 +21,35 @@ componentDidMount()
  // var tablat = this.props.jsondata
  // console.log(tablat)
  console.log(this.props.lat,this.props.lon,this.props.data)
+}
+
+setMarks = (data) => {
+
+  var greenIcon = L.icon({
+      iconUrl: 'location-pin.png',
+  
+      iconSize:     [38, 38], // size of the icon
+   //   shadowSize:   [50, 64], // size of the shadow
+    //  iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+   //   shadowAnchor: [4, 62],  // the same for the shadow
+   //   popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+  });
+  console.log(data)
+      return(
+
+
+  <Marker key={data[2]}
+      position={[data[0],data[1]]}
+      icon={ greenIcon }
+      >
+          <Popup>
+              Twoje kordy to: {data[0]} + {data[1]} <br/>
+              Witam serdecznie
+          </Popup>
+  </Marker>
+  )
+
+      
 }
 
 render() {
@@ -67,8 +97,15 @@ render() {
         <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-       <MapConsumer>
+        />        
+         {tablat.map(this.setMarks)}
+    </MapContainer>
+    )
+    }
+}
+
+/*
+<MapConsumer>
         {(map) => {
           console.log(tablat)
           tablat.forEach(element => {
@@ -84,7 +121,5 @@ render() {
         return null
         }}
       </MapConsumer>
-    </MapContainer>
-    )
-    }
-}
+
+*/
