@@ -2,6 +2,7 @@ import { Component } from "react";
 import {MapContainer,MapConsumer, TileLayer, Marker, Popup} from 'react-leaflet'
 import L from 'leaflet';
 import getSensorList from './getSensorList'
+import SensorData from './dispSensorData'
 
 export default class Markers extends Component{
     
@@ -18,8 +19,7 @@ componentDidMount()
     .then(results => this.setState({sensorList: results}))
     .catch(error => console.log( error));
     this.getIndexLevel(this.props.id)
- //   
-    
+ 
 }
 
 getIndexLevel = (id) =>  {
@@ -51,14 +51,14 @@ getIndexLevel = (id) =>  {
     })
     };
 
-createpop = (sensorList) =>
+createpop = (sensor) =>
 {   
 
     return(
-        <p key={sensorList.id}>
-        {sensorList.id}<br/>
-        {sensorList.param.paramName}-{sensorList.param.paramFormula}<br/>       
-        </p>
+        <div key={sensor.id}>
+        {sensor.id}<br/>
+        {sensor.param.paramFormula} : <SensorData id={sensor.id} />    
+        </div>
     )
     
 }
@@ -72,13 +72,8 @@ render()
 
     var greenIcon = L.icon({
         iconUrl: 'location-pin.png',
-    
-        iconSize:     [38, 38], // size of the icon
-     //   shadowSize:   [50, 64], // size of the shadow
-      //  iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-     //   shadowAnchor: [4, 62],  // the same for the shadow
-     //   popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-    });
+        iconSize:[38, 38],
+});
    
   //  console.log(id)
     if(this.state.sensorList && this.state.indexLevel)
@@ -89,8 +84,8 @@ render()
                 icon={ greenIcon }
                 >
                     <Popup>
-                    Pozycja: {lat}-{lon} <br/>
-                    Ostatnia aktualizacja: {this.state.date} <br/>
+                    Aktualizacja: <br/> 
+                    {this.state.date} <br/>
                     Jakość: {this.state.indexLevel}<br/>
                     {this.state.sensorList.map(this.createpop)}
                     </Popup>
@@ -107,8 +102,5 @@ render()
                 </Popup>
         </Marker>
     )
-    
-
 }
-
 }
