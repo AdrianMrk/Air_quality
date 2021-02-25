@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {MapContainer,MapConsumer, TileLayer, Marker, Popup} from 'react-leaflet'
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import getSensorData from './getSensorData'
+import getSensorData from './getSensorList'
 import Markers from './dispMarkers'
 
 
@@ -42,8 +42,7 @@ setMarks = (data) => {
       return(
       <Markers key={id} lat={lat} lon={lon} id={id}/>
       )
-
-      
+    
 }
 
 render() {
