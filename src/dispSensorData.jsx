@@ -9,9 +9,7 @@ state={
 
 componentDidMount()
 {
-
 this.getSensorData(this.props.id)
-
 }
 
 
@@ -25,14 +23,14 @@ getSensorData = (id) =>  {
                   return Promise.reject(`Http error: ${response.status}`);
               }
           })
-          .then((responseData) => {    
-            if(responseData.values[0].value!=null)
-            {this.setState({data: responseData.values[0].value})}
+          .then((responseData) => {  
+            if(responseData.values[0])  
+            {if(responseData.values[0].value!=null)
+            {this.setState({data: responseData.values[0].value.toFixed(2)})}
             else
-            {this.setState({data: responseData.values[3].value})}
+            {this.setState({data: responseData.values[3].value})}}
         })
 };
-
 
 render(){
 

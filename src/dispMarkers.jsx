@@ -9,7 +9,8 @@ export default class Markers extends Component{
     state ={
         sensorList: null,
         indexLevel: null,
-        date: null
+        date: null,
+        color: null,
     }
 
 componentDidMount()
@@ -36,7 +37,9 @@ getIndexLevel = (id) =>  {
 
         this.setState({date: responseData.stCalcDate})
         console.log(responseData);
-        if(responseData.pm25IndexLevel)
+        if(responseData.stIndexLevel.indexLevelName !== "Brak indeksu")
+        this.setState({indexLevel: responseData.stIndexLevel.indexLevelName})
+        else if(responseData.pm25IndexLevel)
         this.setState({indexLevel: responseData.pm25IndexLevel.indexLevelName})
         else if(responseData.pm10IndexLevel)
         this.setState({indexLevel: responseData.pm10IndexLevel.indexLevelName})
@@ -48,6 +51,21 @@ getIndexLevel = (id) =>  {
         this.setState({indexLevel: responseData.coIndexLevel.indexLevelName})
         else if(responseData.coIndexLevel)
         this.setState({indexLevel: responseData.coIndexLevel.indexLevelName})
+
+        if(this.state.indexLevel === "Bardzo dobry")
+        this.setState({color: "1"})
+        else if(this.state.indexLevel === "Dobry")
+        this.setState({color: "2"})
+        else if(this.state.indexLevel === "Umiarkowany")
+        this.setState({color: "3"})
+        else if(this.state.indexLevel === "Dostateczny")
+        this.setState({color: "4"})
+        else if(this.state.indexLevel === "Zły")
+        this.setState({color: "5"})
+        else if(this.state.indexLevel === "Bardzo zły")
+        this.setState({color: "6"})
+
+
     })
     };
 
@@ -56,8 +74,7 @@ createpop = (sensor) =>
 
     return(
         <div key={sensor.id}>
-        {sensor.id}<br/>
-        {sensor.param.paramFormula} : <SensorData id={sensor.id} />    
+        <b>{sensor.param.paramFormula}</b> : <SensorData id={sensor.id} />    
         </div>
     )
     
@@ -71,9 +88,12 @@ render()
     const lon = this.props.lon;
 
     var greenIcon = L.icon({
-        iconUrl: 'location-pin.png',
+        iconUrl: 'pins/pin'+this.state.color+'.png',
         iconSize:[38, 38],
-});
+        
+})
+
+
    
   //  console.log(id)
     if(this.state.sensorList && this.state.indexLevel)
@@ -84,9 +104,10 @@ render()
                 icon={ greenIcon }
                 >
                     <Popup>
-                    Aktualizacja: <br/> 
+                    <b>Aktualizacja:</b> <br/> 
                     {this.state.date} <br/>
-                    Jakość: {this.state.indexLevel}<br/>
+                    <b>Index jakości <br/>
+                    powietrza: </b> {this.state.indexLevel}<br/>
                     {this.state.sensorList.map(this.createpop)}
                     </Popup>
             </Marker>
