@@ -49,7 +49,7 @@ checkStations(lat,lon,jsonData)
 
     
 
-    if(lat-line.gegrLat>-0.15 && lat-line.gegrLat<0.15 && lon-line.gegrLon>-0.15 && lon-line.gegrLon<0.15 )
+    if(lat-line.gegrLat>-0.22 && lat-line.gegrLat<0.22 && lon-line.gegrLon>-0.22 && lon-line.gegrLon<0.22 )
     {cordtable.push([line.gegrLat,line.gegrLon,line.id])
      console.log(line.stationName+"|"+line.gegrLat+line.gegrLon+"|"+line.id);
     }

@@ -88,8 +88,8 @@ render()
     const lon = this.props.lon;
 
     var greenIcon = L.icon({
-        iconUrl: 'pins/pin'+this.state.color+'.png',
-        iconSize:[38, 38],
+        iconUrl: 'pins/cloud1'+this.state.color+'.png',
+        iconSize:[100, 55],
         
 })
 
@@ -99,7 +99,7 @@ render()
     if(this.state.sensorList && this.state.indexLevel)
     {
         return( 
-            <Marker
+            <Marker class="clouds"
                 position={[lat,lon]}
                 icon={ greenIcon }
                 >
@@ -114,14 +114,7 @@ render()
         )
     }
     return(
-        <Marker
-            position={[lat,lon]}
-            icon={ greenIcon }
-            >
-                <Popup>
-                    Brak danych
-                </Popup>
-        </Marker>
+        null
     )
 }
 }
