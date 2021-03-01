@@ -104,11 +104,13 @@ render()
                 icon={ greenIcon }
                 >
                     <Popup>
-                    <b>Aktualizacja:</b> <br/> 
-                    {this.state.date} <br/>
+                    
                     <b>Index jakości <br/>
                     powietrza: </b> {this.state.indexLevel}<br/>
                     {this.state.sensorList.map(this.createpop)}
+                    <br/>
+                    <b>Aktualizacja:</b> <br/> 
+                    {this.state.date} <br/>
                     </Popup>
             </Marker>
         )
