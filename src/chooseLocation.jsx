@@ -16,7 +16,7 @@ export class ChooseLocation extends React.Component {
     const lat = locations.lat;
     const lon = locations.lon;
     
-    return <div key={key} style={{backgroundColor:'white',margin:'14px'}} onClick={() => this.setcords(displayName,lat,lon)}> {displayName+" | "+lat+" | "+lon}</div>
+    return <div key={key} style={{cursor:'pointer',backgroundColor:'white',margin:'14px'}} onClick={() => this.setcords(displayName,lat,lon)}> {displayName+" | "+lat+" | "+lon}</div>
   };
 
   setcords(name,lat,lon)

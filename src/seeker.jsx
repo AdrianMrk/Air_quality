@@ -31,19 +31,23 @@ export default class Seeker extends React.Component {
         if(location)
         {
           return (
-          <div>
+        
+          <div id="mainContainer">
+          
             {console.log(location)}
             <div className="backButton" onClick={() => this.setState({currentLocation:null})}>Wybierz Ponownie</div>
             {<ChooseLocation locations={location}/>}          
+          
           </div>
+          
           );
         }
 
         else{
 
       return (
-        <div>
-          <div id="header">
+        
+          <div id="mainContainer">
           <div>
             <form onSubmit={this.handleSubmit}>
             <label>
@@ -54,7 +58,7 @@ export default class Seeker extends React.Component {
             </form>
             
         </div>
-        </div>
+        
       
       </div>
       );

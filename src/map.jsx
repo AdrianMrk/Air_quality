@@ -86,7 +86,7 @@ render() {
 
 
     return (
-    <MapContainer center={position} zoom={12} style={{position: 'absolute', top:'0px', height : '100%',width:'100%',zIndex:'-2'}}>
+    <MapContainer center={position} zoom={12}>
         <TileLayer
         attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
