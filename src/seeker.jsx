@@ -5,7 +5,7 @@ import { ChooseLocation } from "./chooseLocation";
 export default class Seeker extends React.Component {
     constructor(props) {
       super(props);
-      this.state = {value: '',currentLocation:null};
+      this.state = {value: '', currentLocation:null};
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -35,9 +35,11 @@ export default class Seeker extends React.Component {
           <div id="mainContainer">
           
             {console.log(location)}
-            <div className="backButton" onClick={() => this.setState({currentLocation:null})}>Wybierz Ponownie</div>
+            <p className="headerFont">Wybierz Miejsce</p>
+            <br/>
             {<ChooseLocation locations={location}/>}          
           
+            <div className="backButton" onClick={() => this.setState({currentLocation:null})}>Wybierz Ponownie</div>
           </div>
           
           );
@@ -47,19 +49,22 @@ export default class Seeker extends React.Component {
 
       return (
         
-          <div id="mainContainer">
-          <div>
-            <form onSubmit={this.handleSubmit}>
-            <label>
-                Podaj miasto
-                <input type="text" value={this.state.value} onChange={this.handleChange} />
-            </label>
+      <div id="mainContainer">
+        <div>
+          <p className="headerFont">Podaj Miejsce</p> 
+          <br/> 
+          <form onSubmit={this.handleSubmit}>
+             
+            <input type="text" placeholder="Szukaj.." value={this.state.value} onChange={this.handleChange} />            
+            <br/>
             <input type="submit" value="Wyślij" />
-            </form>
-            
-        </div>
-        
-      
+          </form> 
+         </div> 
+         <br/><br/><br/>
+         <p className="description">
+           Podając miejsce, w promieniu 25 kilometrów zostaną
+           wyświetlone wszystkie istniejące i działające czujniki jakości powietrza.
+          </p>  
       </div>
       );
       }

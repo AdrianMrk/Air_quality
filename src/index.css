@@ -1,5 +1,5 @@
 body {
-
+  height:100%;
   position:relative;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,11 +18,10 @@ code {
 
   position:fixed;
   left:0px; top:0px;
-  height:100%; width:100%;
+  height:100vh;width:100%;
   background-image: url("Main_look.jpg");
-  background-size: cover;
   filter: blur(3px);
-
+  background-size: cover;
 }
 
 #mainContainer{
@@ -35,6 +34,35 @@ margin:60px;
 padding:10px;
 background-color: rgb(255, 255, 255);
 box-shadow: 35px 30px 1px 0px #202020;
+}
+
+.headerFont{text-align: center;font-weight: bold; color:rgb(245, 154, 35);font-size: 24px;padding:10px;
+  border-bottom:solid 2px rgb(196, 194, 193);}
+
+input[type=text] {
+  font-size: 18px;
+  width: 100%;
+  padding: 8px 20px;
+  margin: 6px 0;
+  box-sizing: border-box;
+}
+input[type=submit] {
+border:none;
+font-size: 18px;
+padding: 8px 20px;
+margin: 6px 0;
+text-align: right;
+}
+
+.description{
+
+  color:rgb(104, 104, 104);
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+
+.locationContainer{
+  font-size: 18px;
+  border-bottom:solid 2px rgb(196, 194, 193);
 }
 
 #header{
@@ -80,6 +108,8 @@ font-weight: 500;
   cursor: pointer;
 }
 
+.row { margin:0px !important;}
+
 .leaflet-container
 {
   position:fixed !important;
@@ -91,7 +121,7 @@ font-weight: 500;
 }
 
 .leaflet-marker-icon{
-  animation-name: example;
+  animation-name: marker_animation;
   animation-duration: 1.1s;
   animation-iteration-count: infinite;
   animation-timing-function: linear;
@@ -102,7 +132,7 @@ font-weight: 500;
   
 }
 
-@keyframes example {
+@keyframes marker_animation {
   0% {top:-4px}
   50% {top:2px}
   100% {top:-4px}
