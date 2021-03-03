@@ -1,6 +1,6 @@
 import * as React from "react";
-import getLocationData from "./getLocationData"
-import { ChooseLocation } from "./chooseLocation";
+import getLocationData from "./getData/getLocationData"
+import { ChooseLocation } from "./dispchooseLocation";
 
 export default class Seeker extends React.Component {
     constructor(props) {

@@ -1,5 +1,5 @@
 import * as React from "react";
-import Seeker from './seeker'
+import Seeker from './components/seeker'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Col, Row } from 'react-bootstrap';
 function App() {

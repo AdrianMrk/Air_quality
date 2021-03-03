@@ -1,5 +1,5 @@
 import * as React from "react";
-import GetSensorLocation from "./getSensorLocation"
+import GetSensorLocation from "./getData/getSensorLocation"
 
 
 export class ChooseLocation extends React.Component {

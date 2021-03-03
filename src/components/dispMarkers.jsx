@@ -1,7 +1,7 @@
 import { Component } from "react";
 import {Marker, Popup} from 'react-leaflet'
 import L from 'leaflet';
-import getSensorList from './getSensorList'
+import getSensorList from './getData/getSensorList'
 import SensorData from './dispSensorData'
 
 export default class Markers extends Component{
