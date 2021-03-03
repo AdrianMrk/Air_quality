@@ -21,7 +21,6 @@ export class ChooseLocation extends React.Component {
 
   setcords(name,lat,lon)
   {
-    console.log(name+' | '+lat+' | '+lon)
     this.setState({currentlat:lat,currentlon:lon})
   }
   

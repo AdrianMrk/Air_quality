@@ -1,5 +1,5 @@
 import { Component } from "react";
-import {MapContainer,MapConsumer, TileLayer, Marker, Popup} from 'react-leaflet'
+import {Marker, Popup} from 'react-leaflet'
 import L from 'leaflet';
 import getSensorList from './getSensorList'
 import SensorData from './dispSensorData'
@@ -36,7 +36,6 @@ getIndexLevel = (id) =>  {
       .then((responseData) => {    
 
         this.setState({date: responseData.stCalcDate})
-        console.log(responseData);
         if(responseData.stIndexLevel.indexLevelName !== "Brak indeksu")
         this.setState({indexLevel: responseData.stIndexLevel.indexLevelName})
         else if(responseData.pm25IndexLevel)
@@ -83,7 +82,7 @@ createpop = (sensor) =>
 
 render()
 {
- //   console.log(this.state.indexLevel);
+
     const lat = this.props.lat;
     const lon = this.props.lon;
 
@@ -95,7 +94,7 @@ render()
 
 
    
-  //  console.log(id)
+
     if(this.state.sensorList && this.state.indexLevel)
     {
         return( 

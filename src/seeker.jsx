@@ -33,8 +33,6 @@ export default class Seeker extends React.Component {
           return (
         
           <div id="mainContainer">
-          
-            {console.log(location)}
             <p className="headerFont">Wybierz Miejsce</p>
             <br/>
             {<ChooseLocation locations={location}/>}          
