@@ -58,7 +58,7 @@ export default class Seeker extends React.Component {
             <input type="submit" value="Wyślij" />
           </form> 
          </div> 
-         <br/><br/><br/>
+         <br/><br/>
          <p className="description">
            Podając miejsce, w promieniu 25 kilometrów zostaną
            wyświetlone wszystkie istniejące i działające czujniki jakości powietrza.

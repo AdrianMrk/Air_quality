@@ -55,14 +55,14 @@ text-align: right;
 }
 
 .description{
-
+  margin-top: 18px;
   color:rgb(104, 104, 104);
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
 }
 
 .locationContainer{
   font-size: 18px;
-  border-bottom:solid 2px rgb(196, 194, 193);
+  border-bottom:solid 2px rgb(224, 224, 224);
 }
 
 #header{
@@ -136,4 +136,13 @@ font-weight: 500;
   0% {top:-4px}
   50% {top:2px}
   100% {top:-4px}
+}
+
+@media screen and (max-width: 767px) {
+  #mainContainer{width:85%;margin-left:20px;height:auto}
+  .description{margin-top: 0px;}
+  .locationContainer{font-size: 16px}
+  #header{ top:-20px;font-size: 30px; }
+  #header2{ top:-20px;font-size: 26px; }
+
 }
